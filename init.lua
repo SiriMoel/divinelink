@@ -1,8 +1,27 @@
 dofile_once("mods/divinelink/files/scripts/utils.lua")
+dofile_once("mods/divinelink/files/scripts/dl.lua")
 
 dofile_once("mods/divinelink/lib/nxml.lua")
 local nxml = dofile_once("mods/divinelink/lib/nxml.lua")
 
+-- death scripts
+local dropdoers = {
+    {
+        path = "data/entities/player.xml",
+        script = "mods/divinelink/files/scripts/player_death.lua",
+    },
+}
+
+for i,v in ipairs(dropdoers) do
+    local xml = nxml.parse(ModTextFileGetContent(v.path))
+    xml:add_child(nxml.parse(([[
+        <LuaComponent
+              script_death="%s"
+              >
+        </LuaComponent>
+    ]]):format(v.script)))
+    ModTextFileSetContent(v.path, tostring(xml))
+end
 
 -- pixel scenes (thanks graham)
 local function add_scene(table)
@@ -36,7 +55,19 @@ function OnPlayerSpawned( player )
 
     local px, py = EntityGetTransform(player)
 
+	-- gui script here?
+
     if GameHasFlagRun("divinelink_init") then return end
+
+	-- doing difficulty stuff
+	DLinit()
+	SetDifficultyDamageMultipliers()
+
+	-- adding scripts to player
+	EntityAddComponent2(player, "LuaComponent", {
+		script_source_file="mods/divinelink/files/scripts/player_everyframe.lua",
+		execute_every_n_frame=1,
+	})
 
     GameAddFlagRun("divinelink_init")
 end
