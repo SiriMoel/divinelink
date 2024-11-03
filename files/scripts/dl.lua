@@ -1,12 +1,12 @@
 dofile_once("mods/divinelink/files/scripts/utils.lua")
 
 function GetDLDifficulty()
-    local difficulty = tonumber(GlobalsGetValue("DL_difficulty", "-1"))
+	local difficulty = ModSettingGet("divinelink.difficulty") or -1
     return difficulty
 end
 
 function SetDLDifficulty(difficulty)
-    GlobalsSetValue("DL_difficulty", tostring(difficulty))
+	ModSettingSet("divinelink.difficulty", difficulty)
 end
 
 function ResetPlayerDamageMultipliers()

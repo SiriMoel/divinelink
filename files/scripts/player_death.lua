@@ -7,7 +7,7 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
 	local x, y = EntityGetTransform(entity)
 
     local difficulty = GetDLDifficulty()
-    local deaths_on_this_difficulty = tonumber(GlobalsGetValue("DL_DOTD", "0"))
+    local deaths_on_this_difficulty = ModSettingGet("divinelink.dotd") or 0
 
     if difficulty == 4 then
         deaths_on_this_difficulty = deaths_on_this_difficulty + 1
@@ -25,5 +25,5 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
     if difficulty == 1 then
         deaths_on_this_difficulty = deaths_on_this_difficulty + 1
     end
-    GlobalsSetValue("DL_DOTD", tostring(deaths_on_this_difficulty))
+    ModSettingSet("divinelink.dotd", deaths_on_this_difficulty)
 end
