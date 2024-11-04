@@ -19,7 +19,13 @@ end
 local mod_id = "divinelink"
 mod_settings_version = 1
 mod_settings = {
-    
+	{
+        id = "reset_progress",
+        ui_name = "RESET PROGRESS",
+        ui_description = "Reset your progress on next run start.",
+        value_default = false,
+        scope = MOD_SETTING_SCOPE_RUNTIME,
+    },
 }
 
 function ModSettingsUpdate( init_scope )

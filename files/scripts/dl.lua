@@ -57,7 +57,7 @@ function ResetPlayerDamageMultipliers()
     end
 end
 
-function SetDifficultyDamageMultipliers()
+function ApplyDifficultyDamageMultipliers()
     local player = GetPlayer()
     local difficulty = GetDLDifficulty()
     ResetPlayerDamageMultipliers()
@@ -73,7 +73,7 @@ function SetDifficultyDamageMultipliers()
         mult = 1
     end
     if difficulty == 1 then -- POWER IN MISERY
-        mult = 0.5
+        mult = 0.75
     end
     if #comps_damagemodel > 0 then
         for i,comp in ipairs(comps_damagemodel) do
@@ -126,4 +126,34 @@ function DLinit()
         difficulty = 3 -- DIVINE LINK ESTABLISHED
     end
     SetDLDifficulty(difficulty)
+end
+
+function ApplyDifficultyThingsToPlayer()
+	local player = GetPlayer()
+	local difficulty = GetDLDifficulty()
+	local player_thingies = EntityGetWithTag("DL_player_thingy") or {}
+	if #player_thingies > 0 then
+		for i,v in ipairs(player_thingies) do
+			EntityKill(v)
+		end
+	end
+	if difficulty == 4 then
+		
+	end
+	if difficulty == 3 then
+		
+	end
+	if difficulty == 2 then
+		
+	end
+	if difficulty == 1 then
+		LoadGameEffectEntityTo(player, "mods/divinelink/files/entities/misc/effect_power_in_misery.xml")
+	end
+end
+
+function ChangeDifficultyDuringRun(difficulty)
+	SetDLDifficulty(difficulty)
+	ResetPlayerDamageMultipliers()
+	ApplyDifficultyDamageMultipliers()
+	ApplyDifficultyThingsToPlayer()
 end

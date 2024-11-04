@@ -1,0 +1,18 @@
+<Entity tags="DL_player_thingy" >
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+    	effect="HEALING_BLOOD"
+    	frames="-1"
+    >
+	</GameEffectComponent>
+
+	<GameEffectComponent 
+    	effect="PROTECTION_FOOD_POISONING"
+    	frames="-1"
+    >
+	</GameEffectComponent>
+	
+</Entity>

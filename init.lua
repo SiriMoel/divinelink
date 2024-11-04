@@ -55,13 +55,19 @@ function OnPlayerSpawned( player )
 
     local px, py = EntityGetTransform(player)
 
-	-- gui script here?
+	dofile_once("mods/divinelink/files/gui.lua")
 
     if GameHasFlagRun("divinelink_init") then return end
 
 	-- doing difficulty stuff
+	if ModSettingGet("divinelink.reset_progress") then
+		SetDLDifficulty(-1)
+		ModSettingSet("divinelink.dotd", 0)
+		ModSettingSet("divinelink.reset_progress", false)
+	end
 	DLinit()
-	SetDifficultyDamageMultipliers()
+	ApplyDifficultyDamageMultipliers()
+	ApplyDifficultyThingsToPlayer()
 
 	-- adding scripts to player
 	EntityAddComponent2(player, "LuaComponent", {

@@ -3,7 +3,7 @@ dofile_once("mods/divinelink/files/scripts/dl.lua")
 
 local difficulty = GetDLDifficulty()
 
-if difficulty == 4 then
+--[[if difficulty == 4 then
     GamePrint("HOPE ERADICTAED")
 end
 if difficulty == 3 then
@@ -14,4 +14,4 @@ if difficulty == 2 then
 end
 if difficulty == 1 then
     GamePrint("POWER IN MISERY")
-end
+end]]
