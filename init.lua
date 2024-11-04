@@ -45,7 +45,8 @@ local function add_scene(table)
 end
 
 local scenes = {
-
+	-- divine light orb in souls room (or in the middle of the tree if souls isnt enabled)
+	{ -1543, -403, "mods/divinelink/files/entities/difficulty_orbs/divinelight/thing.xml", false },
 }
 
 add_scene(scenes)
@@ -58,6 +59,8 @@ function OnPlayerSpawned( player )
 	dofile_once("mods/divinelink/files/gui.lua")
 
     if GameHasFlagRun("divinelink_init") then return end
+
+	--EntityLoad("mods/divinelink/files/entities/difficulty_orbs/divinelight/thing.xml", px, py)
 
 	-- doing difficulty stuff
 	if ModSettingGet("divinelink.reset_progress") then

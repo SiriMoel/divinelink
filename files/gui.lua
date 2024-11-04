@@ -25,9 +25,9 @@ function GuiRender()
     GuiStartFrame(gui)
 
     -- idk where to put it yet
-    GuiLayoutBeginHorizontal(gui, 65, 20)
-        GuiImage(gui, gui_id, 0, 0, difficulty_image_path, 1, 5, 5)
-        GuiText(gui, 0, 0, tostring(difficulty) .. " ")
+    GuiLayoutBeginHorizontal(gui, 65, 82.5)
+        GuiImage(gui, gui_id, 0, 0, difficulty_image_path, 1, 1, 1)
+        --GuiText(gui, 0, 0, tostring(difficulty) .. " ")
         GuiText(gui, 0, 0, tostring(dotd) .. " ")
     GuiLayoutEnd(gui)
 

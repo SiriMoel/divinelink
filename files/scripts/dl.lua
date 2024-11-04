@@ -153,6 +153,7 @@ end
 
 function ChangeDifficultyDuringRun(difficulty)
 	SetDLDifficulty(difficulty)
+	ModSettingSet("divinelink.dotd", 0)
 	ResetPlayerDamageMultipliers()
 	ApplyDifficultyDamageMultipliers()
 	ApplyDifficultyThingsToPlayer()

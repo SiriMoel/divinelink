@@ -18,8 +18,9 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
     end
     if difficulty == 2 then
         deaths_on_this_difficulty = deaths_on_this_difficulty + 1
-        if deaths_on_this_difficulty > 3 then
+        if deaths_on_this_difficulty >= 3 then
             SetDLDifficulty(1)
+            deaths_on_this_difficulty = 0
         end
     end
     if difficulty == 1 then
