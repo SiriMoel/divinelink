@@ -166,8 +166,8 @@ function CreateEnlightenedEnemy(entity)
 	for i,comp in ipairs(comps_damagemodel) do
 		local hp = ComponentGetValue2(comp, "hp")
 		local max_hp = ComponentGetValue2(comp, "max_hp")
-		hp = hp * 1.5
-		max_hp = max_hp * 1.5
+		hp = math.ceil(hp * 1.25)
+		max_hp = math.ceil(max_hp * 1.25)
 		ComponentSetValue2(comp, "hp", hp)
 		ComponentSetValue2(comp, "max_hp", max_hp)
 	end
@@ -178,6 +178,60 @@ function CreateEnlightenedEnemy(entity)
 	EntityAddComponent2(entity, "LuaComponent", {
 		script_death="mods/divinelink/files/scripts/enemy_enlightened_death.lua"
 	})
-	-- new attack / buff / thing
-	-- (i lack ideas)
+	-- new attack / buff / thing.
+	local buffs = {  -- probably want to have ~10
+		{ -- healthy, more hp
+			thing = function()
+				for i,comp in ipairs(comps_damagemodel) do
+					local hp = ComponentGetValue2(comp, "hp")
+					local max_hp = ComponentGetValue2(comp, "max_hp")
+					hp = math.ceil(hp * 1.5)
+					max_hp = math.ceil(max_hp * 1.5)
+					ComponentSetValue2(comp, "hp", hp)
+					ComponentSetValue2(comp, "max_hp", max_hp)
+				end
+			end,
+		},
+		{ -- wizardly, fires wizard orbs at player 
+			thing = function()
+				EntityAddComponent2(entity, "LuaComponent", {
+					script_source_file="mods/divinelink/files/enlightened_attacks/wizardly.lua",
+					execute_every_n_frame=120,
+				})
+			end,
+		},
+		{ -- infernal, immune to fire and converts nearby things to fire
+			thing = function()
+				local burnable_things = { "water", "water_ice", "water_salt", "water_static", "water_swamp", "radioactive_liquid", "blood_cold", "blood", "oil", "grass" }
+				for i,v in ipairs(burnable_things) do
+					EntityAddComponent2(entity, "MagicConvertMaterialComponent", {
+						from_material = v,
+						to_material = "fire",
+						steps_per_frame = 20,
+						loop = true, -- is this correct for EntityAddComponent2() ?
+						is_circle = true, -- is this correct for EntityAddComponent2() ?
+						radius = 20,
+					})
+				end
+				LoadGameEffectEntityTo(entity, "mods/divinelink/files/enlightened_attacks/infernal_effect.xml")
+			end,
+		},
+		--[[{ -- weakening aura, like those ghost things but weakening
+			thing = function()
+
+			end,
+		},]]
+		--[[{ -- persistent drug offerer, small radius that adds tripping status?
+			thing = function()
+
+			end,
+		},]]
+		--[[{ -- psycho, sets cursor position to it like psycho from cruelty squad!!! (idk if this is possible)
+			thing = function()
+
+			end,
+		},]]
+	}
+	local which = math.random(1,#buffs)
+	buffs[which].thing()
 end

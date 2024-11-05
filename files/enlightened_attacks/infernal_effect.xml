@@ -1,0 +1,12 @@
+<Entity tags="" >
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+    	effect="PROTECTION_FIRE"
+    	frames="-1"
+    >
+	</GameEffectComponent>
+	
+</Entity>
