@@ -23,6 +23,17 @@ for i,v in ipairs(dropdoers) do
     ModTextFileSetContent(v.path, tostring(xml))
 end
 
+-- nxml things
+local xml = nxml.parse(ModTextFileGetContent("data/entities/base_humanoid.xml"))
+xml:add_child(nxml.parse(([[
+    <LuaComponent
+        script_source_file="mods/divinelink/files/scripts/enemy_become_enlightened.lua"
+		execute_every_n_frame="100"
+        >
+    </LuaComponent>
+]])))
+ModTextFileSetContent("data/entities/base_humanoid.xml", tostring(xml))
+
 -- pixel scenes (thanks graham)
 local function add_scene(table)
 	local biome_path = ModIsEnabled("noitavania") and "mods/noitavania/data/biome/_pixel_scenes.xml" or "data/biome/_pixel_scenes.xml"
@@ -45,7 +56,7 @@ local function add_scene(table)
 end
 
 local scenes = {
-	-- divine light orb in souls room (or in the middle of the tree if souls isnt enabled)
+	-- divine light orb in souls room (or in the middle of the tree if souls isnt enabled) GO PLAY SOULS!!!
 	{ -1543, -403, "mods/divinelink/files/entities/difficulty_orbs/divinelight/thing.xml", false },
 }
 

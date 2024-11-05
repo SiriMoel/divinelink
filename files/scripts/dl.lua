@@ -64,16 +64,16 @@ function ApplyDifficultyDamageMultipliers()
     local comps_damagemodel = EntityGetComponent(player, "DamageModelComponent") or {}
     local mult = 0
     if difficulty == 4 then -- HOPE ERADICATED
-        mult = 2
-    end
-    if difficulty == 3 then -- DIVINE LIGHT
         mult = 1.5
     end
+    if difficulty == 3 then -- DIVINE LIGHT
+        mult = 1.0
+    end
     if difficulty == 2 then -- FLESH AUTOMATON
-        mult = 1
+        mult = 1.0
     end
     if difficulty == 1 then -- POWER IN MISERY
-        mult = 0.75
+        mult = 0.8
     end
     if #comps_damagemodel > 0 then
         for i,comp in ipairs(comps_damagemodel) do
@@ -157,4 +157,27 @@ function ChangeDifficultyDuringRun(difficulty)
 	ResetPlayerDamageMultipliers()
 	ApplyDifficultyDamageMultipliers()
 	ApplyDifficultyThingsToPlayer()
+end
+
+function CreateEnlightenedEnemy(entity)
+	local x, y = EntityGetTransform(entity)
+	-- increase hp
+	local comps_damagemodel = EntityGetComponent(entity, "DamageModelComponent") or {}
+	for i,comp in ipairs(comps_damagemodel) do
+		local hp = ComponentGetValue2(comp, "hp")
+		local max_hp = ComponentGetValue2(comp, "max_hp")
+		hp = hp * 1.5
+		max_hp = max_hp * 1.5
+		ComponentSetValue2(comp, "hp", hp)
+		ComponentSetValue2(comp, "max_hp", max_hp)
+	end
+	-- add fx
+	local effect = EntityLoad("mods/divinelink/files/entities/particles/enlightened_enemy.xml", x, y)
+	EntityAddChild(entity, effect)
+	-- add death script
+	EntityAddComponent2(entity, "LuaComponent", {
+		script_death="mods/divinelink/files/scripts/enemy_enlightened_death.lua"
+	})
+	-- new attack / buff / thing
+	-- (i lack ideas)
 end
