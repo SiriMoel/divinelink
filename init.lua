@@ -79,6 +79,7 @@ function OnPlayerSpawned( player )
 		SetDLDifficulty(-1)
 		ModSettingSet("divinelink.dotd", 0)
 		ModSettingSet("divinelink.reset_progress", false)
+		ModSettingSetNextValue("divinelink.reset_progress", false, true)
 	end
 	DLinit()
 	ApplyDifficultyDamageMultipliers()
