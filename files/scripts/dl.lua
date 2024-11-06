@@ -205,8 +205,8 @@ function CreateEnlightenedEnemy(entity)
 				local burnable_things = { "water", "water_ice", "water_salt", "water_static", "water_swamp", "radioactive_liquid", "blood_cold", "blood", "oil", "grass" }
 				for i,v in ipairs(burnable_things) do
 					EntityAddComponent2(entity, "MagicConvertMaterialComponent", {
-						from_material = v,
-						to_material = "fire",
+						from_material = CellFactory_GetType(v),
+						to_material = CellFactory_GetType("fire"),
 						steps_per_frame = 20,
 						loop = true, -- is this correct for EntityAddComponent2() ?
 						is_circle = true, -- is this correct for EntityAddComponent2() ?
@@ -226,7 +226,7 @@ function CreateEnlightenedEnemy(entity)
 
 			end,
 		},]]
-		--[[{ -- psycho, sets cursor position to it like psycho from cruelty squad!!! (idk if this is possible)
+		--[[{ -- psycho, forces you to aim at it or something (like in cruelty squad!!!)
 			thing = function()
 
 			end,
