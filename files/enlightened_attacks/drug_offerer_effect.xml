@@ -20,7 +20,7 @@
 	</DrugEffectModifierComponent>
 	
 	<LifetimeComponent
-		lifetime="100"
+		lifetime="120"
 		>
 	</LifetimeComponent>
 	
