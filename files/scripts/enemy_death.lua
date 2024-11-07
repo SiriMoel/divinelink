@@ -13,7 +13,7 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
     if difficulty == 4 then
         local amount = math.random(0, 3)
         for i=1,amount do
-            EntityLoad()
+            EntityLoad("mods/divinelink/files/entities/animals/wriggler/entity.xml", x, y)
         end
     end
 end
