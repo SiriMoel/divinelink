@@ -73,6 +73,7 @@ function OnPlayerSpawned( player )
     if GameHasFlagRun("divinelink_init") then return end
 
 	--EntityLoad("mods/divinelink/files/entities/difficulty_orbs/divinelight/thing.xml", px, py)
+	--EntityLoad("mods/divinelink/files/entities/misc/moonflower/thing.xml", px, py)
 
 	-- doing difficulty stuff
 	if ModSettingGet("divinelink.reset_progress") then

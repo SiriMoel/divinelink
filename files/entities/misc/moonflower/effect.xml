@@ -1,0 +1,27 @@
+<Entity>
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+        <GameEffectComponent 
+        effect="CUSTOM"
+        custom_effect_id="TRIP_00"
+        frames="54000"
+    >
+	</GameEffectComponent >
+
+	<DrugEffectModifierComponent>
+		<fx_add
+			distortion_amount="0.5"
+			color_amount="0.05"
+			fractals_amount="10"
+            fractals_size="1.5"
+		/>
+	</DrugEffectModifierComponent>
+	
+	<LifetimeComponent
+		lifetime="54000"
+		>
+	</LifetimeComponent>
+
+</Entity>

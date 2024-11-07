@@ -1,0 +1,37 @@
+<Entity>
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+        <GameEffectComponent 
+        effect="CUSTOM"
+        custom_effect_id="TRIP_00"
+        frames="120"
+    >
+	</GameEffectComponent >
+
+	<DrugEffectModifierComponent>
+		<fx_add
+			distortion_amount="0.2"
+			color_amount="0.05"
+			fractals_amount="0.1"
+            fractals_size="0.1"
+		/>
+	</DrugEffectModifierComponent>
+	
+	<LifetimeComponent
+		lifetime="100"
+		>
+	</LifetimeComponent>
+	
+	<UIIconComponent
+		name="$status_trip_00"
+		description="$statusdesc_trip_00"
+		icon_sprite_file="data/ui_gfx/status_indicators/trip.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+
+</Entity>

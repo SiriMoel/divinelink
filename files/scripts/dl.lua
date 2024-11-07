@@ -216,16 +216,18 @@ function CreateEnlightenedEnemy(entity)
 				LoadGameEffectEntityTo(entity, "mods/divinelink/files/enlightened_attacks/infernal_effect.xml")
 			end,
 		},
-		--[[{ -- weakening aura, like those ghost things but weakening
+		{ -- weakening aura, like those ghost things but weakening
 			thing = function()
-
+				local weakening_aura = EntityLoad("mods/divinelink/files/enlightened_attacks/weakening_aura.xml", x, y)
+				EntityAddChild(entity, weakening_aura)
 			end,
-		},]]
-		--[[{ -- persistent drug offerer, small radius that adds tripping status?
+		},
+		{ -- persistent drug offerer, small radius that makes you trip a little
 			thing = function()
-
+				local drug_offerer = EntityLoad("mods/divinelink/files/enlightened_attacks/drug_offerer.xml", x, y)
+				EntityAddChild(entity, drug_offerer)
 			end,
-		},]]
+		},
 		--[[{ -- psycho, forces you to aim at it or something (like in cruelty squad!!!)
 			thing = function()
 

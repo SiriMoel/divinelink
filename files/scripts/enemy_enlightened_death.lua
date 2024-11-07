@@ -8,5 +8,11 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
 
     GamePrint("Foe unenlightened!")
 
-	do_money_drop(1, false)
+	local which = math.random(1,1000)
+
+	if which == 2 then
+		EntityLoad("mods/divinelink/files/entities/misc/moonflower/thing.xml", x, y)
+	else
+		do_money_drop(1, false)
+	end
 end

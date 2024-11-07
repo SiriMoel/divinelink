@@ -1,0 +1,39 @@
+<Entity tags="teleportable_NOT,dl_moonflower">
+
+    <UIInfoComponent
+		name="MOONFLOWER - DO NOT TOUCH"
+		>
+	</UIInfoComponent>
+
+    <SpriteComponent
+
+    ></SpriteComponent>
+
+    <ItemComponent
+    item_name="MOONFLOWER - DO NOT TOUCH"
+    play_spinning_animation="1"
+    play_hover_animation="1"
+    stats_count_as_item_pick_up="0"
+    play_pick_sound="0" >
+  </ItemComponent>
+  
+  <LuaComponent 
+    script_item_picked_up="mods/divinelink/files/entities/misc/moonflower/pickup.lua" >
+  </LuaComponent>
+
+      <SpriteComponent
+		    _tags="enabled_in_hand"
+		    offset_x="4"
+    		offset_y="4"
+	    	image_file="mods/divinelink/files/entities/misc/moonflower/sprite.xml"
+    	></SpriteComponent>
+
+  <LightComponent 
+    _tags="enabled_in_world"
+    r="255"
+    g="255"
+    b="255"
+    radius="64" >
+  </LightComponent>
+
+</Entity>
