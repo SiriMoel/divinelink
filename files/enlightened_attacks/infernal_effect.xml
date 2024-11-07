@@ -59,5 +59,11 @@
 	delay_frames="2"
     is_emitting="1" >
   </ParticleEmitterComponent>
+
+    <LuaComponent
+		script_source_file="mods/divinelink/files/enlightened_attacks/infernal_aura.lua"
+		execute_every_n_frame="30"
+		>
+	</LuaComponent>
 	
 </Entity>

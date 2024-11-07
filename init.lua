@@ -27,6 +27,31 @@ for i,v in ipairs(dropdoers) do
     ModTextFileSetContent(v.path, tostring(xml))
 end
 
+local wyrm_spawners = {
+	"data/entities/animals/boss_alchemist/boss_alchemist.xml",
+	"data/entities/animals/boss_limbs/boss_limbs.xml",
+	"data/entities/animals/boss_dragon.xml",
+	"data/entities/animals/boss_wizard/boss_wizard.xml",
+	"data/entities/animals/boss_fish/fish_giga.xml",
+	"data/entities/animals/boss_spirit/islandspirit.xml",
+	"data/entities/animals/boss_ghost/boss_ghost.xml",
+	"data/entities/animals/boss_meat/boss_meat.xml",
+	"data/entities/animals/boss_robot/boss_robot.xml",
+	"data/entities/animals/maggot_tiny/maggot_tiny.xml",
+}
+
+for i,v in ipairs(wyrm_spawners) do
+	local xml = nxml.parse(ModTextFileGetContent(v))
+	xml:addchild(nxml.parse(([[
+		<LuaComponent
+			script_source_file="mods/divinelink/files/scripts/boss_spawn_wyrm.lua"
+			execute_every_n_frame="1"
+			remove_after_executed="1"
+			>
+		</LuaComponent>
+	]])))
+end
+
 -- nxml things
 local xml = nxml.parse(ModTextFileGetContent("data/entities/base_humanoid.xml"))
 xml:add_child(nxml.parse(([[
