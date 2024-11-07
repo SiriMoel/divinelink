@@ -9,7 +9,7 @@ math.randomseed(x, y + GameGetFrameNum())
 
 if GetDLDifficulty() >= 3 then
     if not EntityHasTag(entity, "DL_enlightened_checked") then
-        if math.random(1, 20) == 2 then
+        if math.random(1, 15) == 2 then
             CreateEnlightenedEnemy(entity)
         end
         EntityAddTag(entity, "DL_enlightened_checked")
