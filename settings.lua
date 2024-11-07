@@ -26,6 +26,17 @@ mod_settings = {
         value_default = false,
         scope = MOD_SETTING_SCOPE_RUNTIME,
     },
+	{
+        id = "deaths_on_flesh_automaton_before_dropping_to_power_in_misery",
+        ui_name = "Mod Setting",
+        ui_description = "Deaths without DIVINE LIGHT before you are reworked.",
+        value_default = 3,
+        value_min = 1,
+        value_max = 10,
+        value_display_multiplier = 1,
+        value_display_formatting = "After death $0.",
+        scope = MOD_SETTING_SCOPE_RUNTIME,
+    },
 }
 
 function ModSettingsUpdate( init_scope )

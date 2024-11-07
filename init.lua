@@ -10,6 +10,10 @@ local dropdoers = {
         path = "data/entities/player.xml",
         script = "mods/divinelink/files/scripts/player_death.lua",
     },
+	{
+        path = "data/entities/animals/boss_pit/boss_pit.xml",
+        script = "mods/divinelink/files/scripts/death_drop_divinelightorb.lua",
+    },
 }
 
 for i,v in ipairs(dropdoers) do
@@ -87,10 +91,10 @@ function OnPlayerSpawned( player )
 	ApplyDifficultyThingsToPlayer()
 
 	-- adding scripts to player
-	EntityAddComponent2(player, "LuaComponent", {
+	--[[EntityAddComponent2(player, "LuaComponent", {
 		script_source_file="mods/divinelink/files/scripts/player_everyframe.lua",
 		execute_every_n_frame=1,
-	})
+	})]]
 
     GameAddFlagRun("divinelink_init")
 end

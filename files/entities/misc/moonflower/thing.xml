@@ -10,7 +10,7 @@
     ></SpriteComponent>
 
     <ItemComponent
-    item_name="MOONFLOWER - DO NOT TOUCH"
+    item_name="MOONFLOWER"
     play_spinning_animation="1"
     play_hover_animation="1"
     stats_count_as_item_pick_up="0"

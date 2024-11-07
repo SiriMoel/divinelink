@@ -12,10 +12,10 @@
 
 	<DrugEffectModifierComponent>
 		<fx_add
-			distortion_amount="0.5"
-			color_amount="0.05"
-			fractals_amount="10"
-            fractals_size="1.5"
+			distortion_amount="100"
+			color_amount="-10"
+			fractals_amount="100"
+            fractals_size="10"
 		/>
 	</DrugEffectModifierComponent>
 	

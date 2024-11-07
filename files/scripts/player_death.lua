@@ -18,7 +18,7 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
     end
     if difficulty == 2 then
         deaths_on_this_difficulty = deaths_on_this_difficulty + 1
-        if deaths_on_this_difficulty >= 3 then
+        if deaths_on_this_difficulty >= ModSettingGet("divinelink.deaths_on_flesh_automaton_before_dropping_to_power_in_misery") then
             SetDLDifficulty(1)
             deaths_on_this_difficulty = 0
         end
