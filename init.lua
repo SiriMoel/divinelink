@@ -14,6 +14,10 @@ local dropdoers = {
         path = "data/entities/animals/boss_pit/boss_pit.xml",
         script = "mods/divinelink/files/scripts/death_drop_divinelightorb.lua",
     },
+	{
+        path = "data/entities/animals/maggot_tiny/maggot_tiny.xml",
+        script = "mods/divinelink/files/scripts/death_drop_hopeeradicatedorb.lua",
+    },
 }
 
 for i,v in ipairs(dropdoers) do
@@ -61,6 +65,11 @@ xml:add_child(nxml.parse(([[
 		remove_after_executed="1"
         >
     </LuaComponent>
+
+	<LuaComponent
+		script_death="mods/divinelink/files/scripts/enemy_death.lua"
+		>
+	</LuaComponent>
 ]])))
 ModTextFileSetContent("data/entities/base_humanoid.xml", tostring(xml))
 

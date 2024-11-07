@@ -15,6 +15,8 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
         -- dead ringer ?
     }
 
+    math.randomseed(x, y + GameGetFrameNum())
+
     local which = math.random(1,#drops)
 
     if GetDLDifficulty() >= 3 then
