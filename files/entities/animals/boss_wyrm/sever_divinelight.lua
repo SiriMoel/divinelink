@@ -5,7 +5,7 @@ local wyrm = GetUpdatedEntityID()
 local x, y = EntityGetTransform(wyrm)
 local difficulty = GetDLDifficulty()
 
-if #EntityGetInRadiusWithTag(x, y, 3, "player_unit") then
+if #EntityGetInRadiusWithTag(x, y, 3, "player_unit") > 0 then
     if difficulty == 3 then
         ChangeDifficultyDuringRun(2)
         GamePrint("DIVINE LIGHT SEVERED")

@@ -46,7 +46,7 @@ local wyrm_spawners = {
 
 for i,v in ipairs(wyrm_spawners) do
 	local xml = nxml.parse(ModTextFileGetContent(v))
-	xml:addchild(nxml.parse(([[
+	xml:add_child(nxml.parse(([[
 		<LuaComponent
 			script_source_file="mods/divinelink/files/scripts/boss_spawn_wyrm.lua"
 			execute_every_n_frame="1"
@@ -54,6 +54,7 @@ for i,v in ipairs(wyrm_spawners) do
 			>
 		</LuaComponent>
 	]])))
+	ModTextFileSetContent(v, tostring(xml))
 end
 
 -- nxml things
@@ -65,7 +66,11 @@ xml:add_child(nxml.parse(([[
 		remove_after_executed="1"
         >
     </LuaComponent>
+]])))
+ModTextFileSetContent("data/entities/base_humanoid.xml", tostring(xml))
 
+local xml = nxml.parse(ModTextFileGetContent("data/entities/base_humanoid.xml"))
+xml:add_child(nxml.parse(([[
 	<LuaComponent
 		script_death="mods/divinelink/files/scripts/enemy_death.lua"
 		>
@@ -111,7 +116,9 @@ function OnPlayerSpawned( player )
     if GameHasFlagRun("divinelink_init") then return end
 
 	--EntityLoad("mods/divinelink/files/entities/difficulty_orbs/divinelight/thing.xml", px, py)
+	--EntityLoad("mods/divinelink/files/entities/difficulty_orbs/hopeeradicated/thing.xml", px, py)
 	--EntityLoad("mods/divinelink/files/entities/misc/moonflower/thing.xml", px, py)
+	--EntityLoad("mods/divinelink/files/entities/animals/boss_wyrm/entity.xml", px, py - 400)
 
 	-- doing difficulty stuff
 	if ModSettingGet("divinelink.reset_progress") then

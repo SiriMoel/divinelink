@@ -3,7 +3,7 @@
     <InheritTransformComponent />
 
     	<ParticleEmitterComponent 
-		emitted_material_name="spark_pink"
+		emitted_material_name="spark_purple_bright"
 		gravity.y="0.0"
 		lifetime_min="0.5"
 		lifetime_max="1.2"

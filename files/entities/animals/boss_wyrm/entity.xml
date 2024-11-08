@@ -12,8 +12,8 @@
 
 	<WormComponent
 		acceleration="1.5"
-		gravity="0"
-		tail_gravity="0"
+		gravity="0.5"
+		tail_gravity="30"
 		part_distance="32"
 		ground_check_offset="8"
 		hitbox_radius="9"
@@ -93,10 +93,9 @@
 
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/head.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -106,10 +105,9 @@
 
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/body.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -119,10 +117,9 @@
 
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/body.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -131,11 +128,10 @@
 	</SpriteComponent>
 
 	<SpriteComponent 
-		_enabled="1" 
-		alpha="1" 
+		_enabled="1"  
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/body.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -145,10 +141,9 @@
 	
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/body.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -158,10 +153,9 @@
 	
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/body.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -171,11 +165,9 @@
 
 	<SpriteComponent 
 		_enabled="1" 
-		alpha="1" 
 		image_file="mods/divinelink/files/entities/animals/boss_wyrm/sprite/tail.xml" 
-		rect_animation="eat" 
-		next_rect_animation="eat" 
-		next_rect_animation="" 
+		rect_animation="stand" 
+		next_rect_animation="stand" 
 		offset_x="44" 
 		offset_y="24" 
 		update_transform="0"
@@ -299,5 +291,10 @@
 		set_speed_parameter="1"
 		auto_play="1">
 	</AudioLoopComponent>
+
+	<LuaComponent
+		script_source_file="mods/divinelink/files/entities/animals/boss_wyrm/sever_divinelight.lua"
+		execute_every_n_frame="10"
+	></LuaComponent>
 
 </Entity>
