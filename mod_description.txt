@@ -1,1 +1,30 @@
-Cruelty Squad inspired difficulty/"QOL" mod with features.
+[b]DIVINE LINK[/b] - a kinda small kinda strange Cruelty Squad inspired Difficulty/QOL mod
+
+Adds 3 difficulties that take effect based off how many times you die, each with unique effects.
+(also adds 1 secret harder difficulty)
+
+This mod came to me in a dream and as such may not make a whole lot of sense at times.
+However I can promise it is certainly a mod. For Noita.
+
+[h1]The Difficulties[/h1]
+There are difficulties.
+
+[h3]DIVINE LIGHT[/h3]
+[b]How to access:[/b] [spoiler]The default difficulty. Or you can find special orbs that reactivate this mode. Or just use the mod setting.[/spoiler]
+[b]Features:[/b] [spoiler]Enemies can be "enlightened" with buffs, Bosses have a loot pinata of sorts (a triagon) around them.[/spoiler]
+
+[h3]FLESH AUTOMATON[/h3]
+[b]How to access:[/b] [spoiler]Die on DIVINE LIGHT.[/spoiler]
+[b]Features:[/b] Essentially normal Noita, enjoy![spoiler][/spoiler]
+
+[h3]POWER IN MISERY[/h3]
+[b]How to access:[/b] Die multiple times (you can change how many in mod settings) on FLESH AUTOMATON.[spoiler][/spoiler]
+[b]Features:[/b] [spoiler]Drink blood for healing! Less damage taken! Yay! I do not envy you.[/spoiler]
+
+[h3]HOPE ERADICATED[/h3]
+[b]How to access:[/b] [spoiler]Find the orb.[/spoiler]
+[b]Features:[/b] [spoiler]There are wrigglers. All DIVINE LIGHT features. Take more damage. There are wrigglers.[/spoiler]
+
+btw do NOT touch the moonflower
+
+[u]Enjoy![/u]
