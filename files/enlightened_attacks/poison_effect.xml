@@ -1,0 +1,17 @@
+<Entity>
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+        <GameEffectComponent 
+        effect="POISON"
+        frames="120"
+    >
+	</GameEffectComponent >
+	
+	<LifetimeComponent
+		lifetime="100"
+		>
+	</LifetimeComponent>
+
+</Entity>

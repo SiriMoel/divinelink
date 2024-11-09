@@ -191,6 +191,7 @@ function CreateEnlightenedEnemy(entity)
 					ComponentSetValue2(comp, "max_hp", max_hp)
 				end
 			end,
+			is_doubleup = false,
 		},
 		{ -- wizardly, fires wizard orbs at player 
 			thing = function()
@@ -199,6 +200,7 @@ function CreateEnlightenedEnemy(entity)
 					execute_every_n_frame=120,
 				})
 			end,
+			is_doubleup = false,
 		},
 		{ -- infernal, immune to fire and converts nearby things to fire
 			thing = function()
@@ -215,25 +217,75 @@ function CreateEnlightenedEnemy(entity)
 				end
 				LoadGameEffectEntityTo(entity, "mods/divinelink/files/enlightened_attacks/infernal_effect.xml")
 			end,
+			is_doubleup = false,
 		},
 		{ -- weakening aura, like those ghost things but weakening
 			thing = function()
 				local weakening_aura = EntityLoad("mods/divinelink/files/enlightened_attacks/weakening_aura.xml", x, y)
 				EntityAddChild(entity, weakening_aura)
 			end,
+			is_doubleup = false,
 		},
 		{ -- persistent drug offerer, small radius that makes you trip a little
 			thing = function()
 				local drug_offerer = EntityLoad("mods/divinelink/files/enlightened_attacks/drug_offerer.xml", x, y)
 				EntityAddChild(entity, drug_offerer)
 			end,
+			is_doubleup = false,
 		},
-		--[[{ -- psycho, forces you to aim at it or something (like in cruelty squad!!!)
+		{ -- spy tf2, invisible + dodge chance + homing immune
 			thing = function()
-
+				LoadGameEffectEntityTo(entity, "mods/divinelink/files/enlightened_attacks/spy_effect.xml")
+				EntityAddComponent2(entity, "LuaComponent", {
+					script_damage_about_to_be_received="mods/divinelink/files/enlightened_attacks/spy_damage_handler.lua"
+				})
+				if EntityHasTag(entity, "homing_target") then
+					EntityRemoveTag(entity, "homing_target")
+				end
 			end,
-		},]]
+			is_doubleup = false,
+		},
+		{ -- poison aura, weakening aura but poison
+			thing = function()
+				local poison_aura = EntityLoad("mods/divinelink/files/enlightened_attacks/poison_aura.xml", x, y)
+				EntityAddChild(entity, poison_aura)
+			end,
+			is_doubleup = false,
+		},
+		{ -- the bomb, explodes on death (random explosion?)
+			thing = function()
+				EntityAddComponent2(entity, "LuaComponent", {
+					script_death="mods/divinelink/files/enlightened_attacks/bomb_death.lua",
+				})
+			end,
+			is_doubleup = false,
+		},
+		{ -- monk, has monk hands
+			thing = function()
+				local monk_arms = EntityLoad("mods/divinelink/files/enlightened_attacks/monk.xml", x, y)
+				EntityAddChild(entity, monk_arms)
+			end,
+			is_doubleup = false,
+		},
+		{ -- double up, has 2 buffs (yes this can stack)
+			thing = function()
+				doubleup()
+			end,
+			is_doubleup = true,
+		},
 	}
+	function doubleup()
+		local which1 = math.random(1,#buffs)
+		local which2 = math.random(1,#buffs)
+		while buffs[which1].is_doubleup ~= false do
+			which1 = math.random(1,#buffs)
+		end
+		while buffs[which2].is_doubleup ~= false or which1 == which2 do
+			which2 = math.random(1,#buffs)
+		end
+		buffs[which1].thing()
+		buffs[which2].thing()
+	end
 	local which = math.random(1,#buffs)
 	buffs[which].thing()
 end
