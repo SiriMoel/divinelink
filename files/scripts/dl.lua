@@ -161,6 +161,7 @@ end
 
 function CreateEnlightenedEnemy(entity)
 	local x, y = EntityGetTransform(entity)
+	math.randomseed(x + GameGetFrameNum(), y + GameGetFrameNum())
 	-- increase hp
 	local comps_damagemodel = EntityGetComponent(entity, "DamageModelComponent") or {}
 	for i,comp in ipairs(comps_damagemodel) do

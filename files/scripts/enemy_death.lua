@@ -10,9 +10,10 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
     math.randomseed(x, y + GameGetFrameNum())
 
     if difficulty == 4 then
-        local amount = math.random(0, 3)
+        local amount = math.random(0, 1)
         for i=1,amount do
-            EntityLoad("mods/divinelink/files/entities/animals/wriggler/entity.xml", x, y)
+            local wriggler = EntityLoad("mods/divinelink/files/entities/animals/wriggler/entity.xml", x, y)
+            CreateEnlightenedEnemy(wriggler)
         end
     end
 end
