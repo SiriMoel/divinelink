@@ -17,7 +17,7 @@ function OnWorldPreUpdate()
         if difficulty == 4 then
             text = "ff374f727ce9d6de93be0793733c321"
             text_dead = "ff374f727ce9d6de93be0793733c321"
-                        image_dead = ""
+            image_dead = ""
         end
         if difficulty == 3 then
             text = "DIVINE LINK INTACT"
@@ -26,7 +26,7 @@ function OnWorldPreUpdate()
         end
         if difficulty == 2 then
             text = "Weakness."
-            text_dead = "YOU ARE A FLESH AUTOMATON ANIMATED BY NEUROTRANSMITTERS"
+            text_dead = "ANIMATED BY NEUROTRANSMITTERS"
             image_dead = ""
         end
         if difficulty == 1 then
