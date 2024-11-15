@@ -120,6 +120,7 @@ function OnPlayerSpawned( player )
 	--EntityLoad("mods/divinelink/files/entities/misc/moonflower/thing.xml", px, py)
 	--EntityLoad("mods/divinelink/files/entities/animals/boss_wyrm/entity.xml", px, py - 400)
 
+
 	-- doing difficulty stuff
 	if ModSettingGet("divinelink.reset_progress") then
 		SetDLDifficulty(-1)
@@ -132,6 +133,9 @@ function OnPlayerSpawned( player )
 	ApplyDifficultyThingsToPlayer()
 
 	-- adding scripts to player
+	EntityAddComponent(player, "LuaComponent", {
+        script_damage_about_to_be_received="mods/divinelink/files/scripts/player_damage_handler.lua"
+    })
 	--[[EntityAddComponent2(player, "LuaComponent", {
 		script_source_file="mods/divinelink/files/scripts/player_everyframe.lua",
 		execute_every_n_frame=1,

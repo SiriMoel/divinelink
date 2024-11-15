@@ -1,0 +1,28 @@
+<Entity>
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="INVISIBILITY"
+        frames="180"
+    >
+	</GameEffectComponent>
+
+    <GameEffectComponent 
+    	effect="MOVEMENT_FASTER_2X"
+    	frames="180"
+    >
+	</GameEffectComponent>
+
+	<AudioComponent
+		file="data/audio/Desktop/misc.bank"
+		event_root="game_effect/invisibility" >
+	</AudioComponent>
+
+	<AudioComponent
+		file="data/audio/Desktop/misc.bank"
+		event_root="game_effect/electrocution" >
+	</AudioComponent>
+
+</Entity>

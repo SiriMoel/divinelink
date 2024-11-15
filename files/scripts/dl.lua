@@ -267,7 +267,7 @@ function CreateEnlightenedEnemy(entity)
 			end,
 			is_doubleup = false,
 		},
-		{ -- double up, has 2 buffs (yes this can stack)
+		{ -- double up, has 2 buffs
 			thing = function()
 				doubleup()
 			end,
